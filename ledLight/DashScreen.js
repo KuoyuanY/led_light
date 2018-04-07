@@ -21,7 +21,7 @@ export default class DashScreen extends React.Component {
   
 	    return (
 	      <Wallpaper>
-		      <View style={{flex: 3}}>
+		      <View style={{flex: 3, marginTop:50}}>
 		        <ColorWheel
 		          initialColor="#000000"
 		          onColorChange={color => 
@@ -77,7 +77,7 @@ export default class DashScreen extends React.Component {
 		          thumbStyle={{ height: 30, width: 30, borderRadius: 30}} />
 		        
 		      </View>
-		      <View style={{flex: 2, backgroundColor: 'white'}}> 
+		      <View style={{flex: 2, marginTop: 40, backgroundColor: 'rgba(255,255,255,0.1)'}}> 
 		      		<Picker
 						selectedValue={this.state.language}
 					 
