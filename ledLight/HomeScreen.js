@@ -7,21 +7,22 @@ import SignupScreen from './SignupScreen';
 
 export default class HomeScreen extends React.Component {
 
-  _onPressButton() {
-    Alert.alert('You tapped the button!')
-  }
+  // _onPressButton() {
+  //   this.props.navigation.navigate('Login')
+  // }
 
   render() {
     return (
       <Wallpaper>
         <View style={styles.container}>
-          <View>
-            <Text style={styles.title}>"LED Lights"</Text>
-          </View>
           <View style={{alignItems: 'center'}}>
             <Image source = {{uri: "https://assets.corusent.com/wp-content/uploads/2018/01/logo_tv_disney_en_jan2018-500x250.png"}} style={styles.logo}/>
           </View>
-          <TouchableOpacity onPress={this._onPressButton}>
+          <View>
+            <Text style={styles.title}>"LED Lights"</Text>
+          </View>
+
+          <TouchableOpacity onPress={() => this.props.navigation.navigate('Login')}>
             <View style={styles.buttonContainer}>
               <Text style= {styles.buttonText}>Login</Text>
             </View>

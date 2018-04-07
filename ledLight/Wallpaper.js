@@ -11,9 +11,11 @@ export default class Wallpaper extends Component {
       uri: 'http://bennettfeely.com/gradients/img/gradient_24.png'
     };
     return (
+    	<View style= {{flex:1}}>
 	      <ImageBackground style={styles.picture} source={pic}>
 	        {this.props.children}
 	      </ImageBackground>
+	     </View>
     );
   }
 }

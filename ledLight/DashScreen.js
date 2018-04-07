@@ -7,6 +7,7 @@ export default class DashScreen extends React.Component {
   render() {
     return (
       <Wallpaper>
+      
       </Wallpaper>
     );
   }
