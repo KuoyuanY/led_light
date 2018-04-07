@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import Dimensions from 'Dimensions';
-import {StyleSheet, Image, View} from 'react-native';
+import {StyleSheet, Image, View, ImageBackground} from 'react-native';
 
 
 
@@ -11,9 +11,9 @@ export default class Wallpaper extends Component {
       uri: 'http://bennettfeely.com/gradients/img/gradient_24.png'
     };
     return (
-	      <Image style={styles.picture} source={pic}>
+	      <ImageBackground style={styles.picture} source={pic}>
 	        {this.props.children}
-	      </Image>
+	      </ImageBackground>
     );
   }
 }
@@ -23,6 +23,6 @@ const styles = StyleSheet.create({
     flex: 1,
     width: null,
     height: null,
-    resizeMode: 'cover',
+    // resizeMode: 'cover',
   },
 });
