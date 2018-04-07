@@ -1,24 +1,18 @@
 {
-  "name": "led_light",
+  "name": "server",
   "version": "1.0.0",
-  "description": "mobile app that controls led lights",
-  "main": "app.js",
+  "description": "",
+  "main": "server.js",
   "scripts": {
-    "start": "node app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/yellgreniff/led_light.git"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
   },
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/yellgreniff/led_light/issues"
+  "devDependencies": {
+    "nodemon": "^1.17.3"
   },
-  "homepage": "https://github.com/yellgreniff/led_light#readme",
   "dependencies": {
-    "body-parser": "^1.18.2",
     "express": "^4.16.3"
   }
 }
