@@ -2,10 +2,10 @@ request = require('request');
 
 function postBody(url){
     var args = new Object();
-    args.state = "ON";//ON/OFF
-    args.colorR = 255;
-    args.colorG = 0;
-    args.colorB = 100;
+    args.state = "OFF";//ON/OFF
+    args.colorR = 0;
+    args.colorG = 255;
+    args.colorB = 0;
     args.brightness = 100;
     args.effect = "juggle";
     args.switches = "yes";//yes

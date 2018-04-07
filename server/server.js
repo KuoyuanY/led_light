@@ -5,6 +5,9 @@ const credentials = require('./credentials');
 const bodyParser = require('body-parser');
 const mqtt = require('mqtt');
 const topic = "bruh/porch/set";
+const pg = require('pg');
+const format = require('pg-format');
+const connectionString = process.env.DATABASE_URL || 'postgres://localhost:5432/led';
 
 var options = {
     keepalive: 60,
@@ -50,6 +53,66 @@ app.use((req, res, next) => {
 });
 app.get('/', (req, res)=>{
     res.send("this is the api");
+});
+
+app.post('/signup', (req, res) => {
+    const pool = new pg.Pool({
+        user: credentials.dbuser,
+        host: '127.0.0.1',
+        database: credentials.db,
+        password: credentials.dbpass,
+        port: '5432'
+    });
+
+    const query = `insert into users values($1, $2, $3, $4)`;
+    const vals = [
+        req.body.username,
+        req.body.password,
+        req.body.first,
+        req.body.last
+    ];
+    pool.query(query, vals, (err, res) => {
+        if(err){
+            console.log("error...");
+            res.send(err.detail || "fail");
+        }else{
+            console.log(res);
+            res.send("success");
+        }
+        pool.end();
+    });
+});
+
+app.post('/login', (req, res) => {
+    const pool = new pg.Pool({
+        user: credentials.dbuser,
+        host: '127.0.0.1',
+        database: credentials.db,
+        password: credentials.dbpass,
+        port: '5432'
+    });
+
+    const query = `select * from users where username = $1 and password = $2`;
+    const vals = [
+        req.body.username,
+        req.body.password
+    ];
+    pool.query(query, vals, (err, res) => {
+        if(err){
+            console.log("error...");
+            console.log(err);
+            res.send(err.detail || "unknown error");
+        }else{
+            if(res.rows.length == 0){
+                console.log("failed logging in");
+                res.send("fail");
+            }else{
+                console.log("successfully logged in");
+                res.send("success");
+            }
+        }
+        pool.end();
+    });
 });
 
 app.post('/set', (req, res) => {
