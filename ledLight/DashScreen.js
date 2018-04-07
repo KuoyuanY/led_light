@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Button, View, Text, Dimensions, StyleSheet } from 'react-native';
+import { Button, View, Text, Dimensions, StyleSheet, Picker } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import { ColorWheel } from 'react-native-color-wheel';
 import Wallpaper from './Wallpaper';
@@ -75,14 +75,17 @@ export default class DashScreen extends React.Component {
 					}}}
 		          style={{width: Dimensions.get('window').width}}
 		          thumbStyle={{ height: 30, width: 30, borderRadius: 30}} />
-		        <Picker
+		        
+		      </View>
+		      <View style={{flex: 1}}> 
+		      		<Picker
 					  selectedValue={this.state.language}
 					  style={{ height: 50, width: 100 }}
 					  onValueChange={(itemValue, itemIndex) => this.setState({language: itemValue})}>
 					  <Picker.Item label="Java" value="java" />
 					  <Picker.Item label="JavaScript" value="js" />
-				</Picker>
-		      </View>
+					</Picker>
+				</View>
 	      </Wallpaper>
 	    );
   }
