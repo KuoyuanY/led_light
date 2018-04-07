@@ -27,7 +27,7 @@ export default class HomeScreen extends React.Component {
               <Text style= {styles.buttonText}>Login</Text>
             </View>
           </TouchableOpacity>
-          <TouchableOpacity onPress={this._onPressButton}>
+          <TouchableOpacity onPress={() => this.props.navigation.navigate('Dashboard')}>
             <View style={styles.buttonContainer}>
               <Text style= {styles.buttonText}>Sign Up</Text>
             </View>
