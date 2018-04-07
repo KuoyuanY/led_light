@@ -1,20 +1,24 @@
 {
-    "name": "led_light",
-    "version": "1.0.0",
-    "description": "mobile app that controls led lights",
-    "main": "app.js",
-    "scripts": {
-        "start": "node app.js",
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/yellgreniff/led_light.git"
-    },
-    "author": "",
-    "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/yellgreniff/led_light/issues"
-    },
-    "homepage": "https://github.com/yellgreniff/led_light#readme"
+  "name": "led_light",
+  "version": "1.0.0",
+  "description": "mobile app that controls led lights",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yellgreniff/led_light.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yellgreniff/led_light/issues"
+  },
+  "homepage": "https://github.com/yellgreniff/led_light#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3"
+  }
 }
