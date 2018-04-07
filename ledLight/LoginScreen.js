@@ -8,6 +8,9 @@ export default class LoginScreen extends React.Component {
   render() {
     return (
       <Wallpaper>
+      	<View>
+      		<Text>"dfs" </Text>
+      	</View>
       </Wallpaper>
     );
   }

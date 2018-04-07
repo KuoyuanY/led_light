@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
-import { Alert, Button, View, Text, StyleSheet } from 'react-native';
+import { Alert, Button, View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import Wallpaper from './Wallpaper';
 import LoginScreen from './LoginScreen';
+import SignupScreen from './SignupScreen';
 
 export default class HomeScreen extends React.Component {
 
@@ -13,11 +14,23 @@ export default class HomeScreen extends React.Component {
   render() {
     return (
       <Wallpaper>
-        <View style={styles.buttonContainer}>
-          <Button 
-            onPress={this._onPressButton}
-            title="Press Me"
-          />
+        <View style={styles.container}>
+          <View>
+            <Text style={styles.title}>"LED Lights"</Text>
+          </View>
+          <View style={{alignItems: 'center'}}>
+            <Image source = {{uri: "https://assets.corusent.com/wp-content/uploads/2018/01/logo_tv_disney_en_jan2018-500x250.png"}} style={styles.logo}/>
+          </View>
+          <TouchableOpacity onPress={this._onPressButton}>
+            <View style={styles.buttonContainer}>
+              <Text style= {styles.buttonText}>Login</Text>
+            </View>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={this._onPressButton}>
+            <View style={styles.buttonContainer}>
+              <Text style= {styles.buttonText}>Sign Up</Text>
+            </View>
+          </TouchableOpacity>
         </View>
       </Wallpaper>
     );
@@ -27,19 +40,32 @@ export default class HomeScreen extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-   flex: 1,
-   justifyContent: 'center',
+    flex: 1,
+    justifyContent: 'center',
+  },
+  title: {
+    margin: 10,
+    textAlign: 'center',
+    justifyContent: 'center',
+    fontSize: 30
+  },
+  buttonText: {
+    margin: 10,
+    textAlign: 'center',
+    justifyContent: 'center',
+    fontSize: 25
   },
   buttonContainer: {
-    margin: 20,
+    margin: 10,
     height: 50,
     backgroundColor: "white",
-    justifyContent: 'center'
+    justifyContent: 'center',
+    borderRadius: 25,
   },
-  alternativeLayoutButtonContainer: {
-    margin: 20,
-    flexDirection: 'row',
-    justifyContent: 'space-between'
+  logo: {
+    width: 193, 
+    height: 110,
+
   }
 })
 
