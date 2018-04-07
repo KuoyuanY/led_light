@@ -30,6 +30,12 @@ const RootStack = StackNavigator(
     Dashboard: {
       screen: DashScreen,
     },
+    Login: {
+      screen: LoginScreen,
+    },
+    Signup: {
+      screen: SignupScreen,
+    },
   },
   {
     initialRouteName: 'Home',

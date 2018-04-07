@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { Alert, Button, View, Text, StyleSheet } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import Wallpaper from './Wallpaper';
+import LoginScreen from './LoginScreen';
 
 export default class HomeScreen extends React.Component {
 
