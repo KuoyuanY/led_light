@@ -3,11 +3,10 @@ import { Button, View, Text } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import Wallpaper from './Wallpaper';
 
-export default class HomeScreen extends React.Component {
+export default class DashScreen extends React.Component {
   render() {
     return (
       <Wallpaper>
-        
       </Wallpaper>
     );
   }
