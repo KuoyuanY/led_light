@@ -79,12 +79,29 @@ export default class DashScreen extends React.Component {
 		      </View>
 		      <View style={{flex: 2, backgroundColor: 'white'}}> 
 		      		<Picker
-					  selectedValue={this.state.language}
+						selectedValue={this.state.language}
 					 
-					  onValueChange={(itemValue, itemIndex) => this.setState({language: itemValue})}>
-					  <Picker.Item label="Java" value="java" />
-					  <Picker.Item label="JavaScript" value="js" />
-					</Picker>
+				    	onValueChange={(itemValue, itemIndex) => this.setState({language: itemValue})}>
+				    	<Picker.Item label="solid" value="solid"/>
+						<Picker.Item label="bpm" value="bpm"/>
+						<Picker.Item label="candy cane" value="candy cane"/>
+						<Picker.Item label="confetti" value="confetti"/>
+						<Picker.Item label="cyclon rainbow" value="cyclon rainbow"/>
+						<Picker.Item label="dots" value="dots"/>
+						<Picker.Item label="fire" value="fire"/>
+						<Picker.Item label="glitter" value="glitter"/>
+						<Picker.Item label="juggle" value="juggle"/>
+						<Picker.Item label="lightning" value="lightning"/>
+						<Picker.Item label="police all" value="police all"/>
+						<Picker.Item label="police one" value="police one"/>
+						<Picker.Item label="rainbow" value="rainbow"/>
+						<Picker.Item label="rainbow with glitter" value="rainbow with glitter"/>
+						<Picker.Item label="sinelon" value="sinelon"/>
+						<Picker.Item label="twinkle" value="twinkle"/>
+						<Picker.Item label="noise" value="noise"/>
+						<Picker.Item label="ripple" value="ripple"/>
+
+						</Picker>
 			   </View>
 			   <View style={{flex: 1}}> </View>
 	      </Wallpaper>
