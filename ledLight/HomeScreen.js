@@ -27,7 +27,7 @@ export default class HomeScreen extends React.Component {
               <Text style= {styles.buttonText}>Login</Text>
             </View>
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => this.props.navigation.navigate('Dashboard')}>
+          <TouchableOpacity onPress={() => this.props.navigation.navigate('Signup')}>
             <View style={styles.buttonContainer}>
               <Text style= {styles.buttonText}>Sign Up</Text>
             </View>
@@ -64,9 +64,8 @@ const styles = StyleSheet.create({
     borderRadius: 25,
   },
   logo: {
-    width: 193, 
+    width: 193,
     height: 110,
 
   }
 })
-

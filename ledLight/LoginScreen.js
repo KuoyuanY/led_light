@@ -22,9 +22,13 @@ export default class LoginScreen extends React.Component {
       <Wallpaper>
       	<View>
       		<Text>"dfs" </Text>
+            <TouchableOpacity onPress={() => this.props.navigation.navigate('Dashboard')}>
+              <View style={styles.buttonContainer}>
+                <Text style= {styles.buttonText}>Log In</Text>
+              </View>
+            </TouchableOpacity>
       	</View>
       </Wallpaper>
     );
   }
 }
-
