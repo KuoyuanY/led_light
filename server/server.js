@@ -1,24 +1,60 @@
 'use strict';
 const express = require('express');
 const app = express();
-const credentials = requre('credentials');
+const credentials = require('./credentials');
 const bodyParser = require('body-parser');
 const mqtt = require('mqtt');
-var cre = {
+const topic = "bruh/porch/set";
+
+var options = {
+    keepalive: 60,
+    reschedulePings: true,
+    protocolId: 'MQTT',
+    clientId: 'mqttjs_' + Math.random().toString(16).substr(2, 8),
+    protocolVersion: 4,
+    reconnectPeriod: 1000,
+    connectTimeout: 30 * 1000,
+    clean: true,
+    port: 16370,
+    resubscribe: true,
     username: credentials.username,
-    password: credentials.password
-};
-var client = mqtt.connect(m14.cloudmqtt.com, cre);
-const topic = "";
+    password: credentials.password,
+    queueQoSZero: true
+}
+var client = mqtt.connect(`mqtt://m14.cloudmqtt.com`, options);//"mqtt://m14.cloudmqtt.com");
 
 //setting up client
 client.on('connect', () => {//
-    console.log("successfully connted to mqtt client");
+    console.log("successfully connected to mqtt client");
+});
+client.on('reconnect', () => {//
+    console.log("reconnectting to mqtt client");
+});
+client.on('close', () => {//
+    console.log("mqtt client connection ended");
+});
+client.on('offline', ()=>{//
+    console.log("mqtt client is offline");
+});
+client.on('error', (err) => {//
+    console.log("an error occurred");
+    console.log(err);
 });
 
 app.use(bodyParser.json());
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
+    next();
+});
+app.get('/', (req, res)=>{
+    res.send("this is the api");
+});
+
 app.post('/set', (req, res) => {
-    var message = `{"state":"${req.query.state}","color":{"r":${req.query.color.r},"g":${req.query.color.g},"b":${req.query.color.b}},"brightness":${req.query.brightness},"effect":"${req.query.effect}"}`;
+    console.log(req.body);
+    var message = `{"state":"${req.body.state}","color":{"r":${req.body.colorR},"g":${req.body.colorG},"b":${req.body.colorB}},"brightness":${req.body.brightness},"effect":"${req.body.effect}"}`;
 
     client.publish(topic, message, (err) => {//send command to arduino
         if(err){
@@ -26,18 +62,18 @@ app.post('/set', (req, res) => {
             res.send("an error has occurred");
         } else{
             console.log("successfully connected");
-            if(res.query.switch === "yes"){//turn led on/off
-                console.log(`successfully turned led ${req.query.state}`);
-                res.send(`successfully turned led ${req.query.state}`);
-            }else if(res.query.setCol === "yes"){//change color of led
+            if(req.body.switches === "yes"){//turn led on/off
+                console.log(`successfully turned led ${req.body.state}`);
+                res.send(`successfully turned led ${req.body.state}`);
+            }else if(req.body.setCol === "yes"){//change color of led
                 console.log(`successfully changed color of led`);
                 res.send(`successfully changed color of led`);
-            }else if(res.query.setBr === "yes"){//change brightness
+            }else if(req.body.setBr === "yes"){//change brightness
                 console.log(`successfully changed brightness of led`);
                 res.send(`successfully changed brightness of led`);
             }else{//set effect
-                console.log(`successfully set effect to ${req.query.effect}`);
-                res.send(`successfully set effect to ${req.query.effect}`)
+                console.log(`successfully set effect to ${req.body.effect}`);
+                res.send(`successfully set effect to ${req.body.effect}`)
             }
         }
     });

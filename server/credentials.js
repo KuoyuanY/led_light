@@ -1,4 +1,4 @@
-modules.exports = {
+module.exports = {
     username: "fhhpmiuy",
     password: "GoKlKsCNQY-Z"
 }
