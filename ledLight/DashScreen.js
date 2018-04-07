@@ -21,7 +21,7 @@ export default class DashScreen extends React.Component {
   
 	    return (
 	      <Wallpaper>
-		      <View style={{flex: 1}}>
+		      <View style={{flex: 3}}>
 		        <ColorWheel
 		          initialColor="#000000"
 		          onColorChange={color => 
@@ -77,15 +77,16 @@ export default class DashScreen extends React.Component {
 		          thumbStyle={{ height: 30, width: 30, borderRadius: 30}} />
 		        
 		      </View>
-		      <View style={{flex: 1}}> 
+		      <View style={{flex: 2, backgroundColor: 'white'}}> 
 		      		<Picker
 					  selectedValue={this.state.language}
-					  style={{ height: 50, width: 100 }}
+					 
 					  onValueChange={(itemValue, itemIndex) => this.setState({language: itemValue})}>
 					  <Picker.Item label="Java" value="java" />
 					  <Picker.Item label="JavaScript" value="js" />
 					</Picker>
-				</View>
+			   </View>
+			   <View style={{flex: 1}}> </View>
 	      </Wallpaper>
 	    );
   }
