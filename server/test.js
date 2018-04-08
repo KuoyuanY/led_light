@@ -2,12 +2,12 @@ request = require('request');
 
 function postBody(url){
     var args = new Object();
-    args.state = "OFF";//ON/OFF
+    args.state = "ON";//ON/OFF
     args.colorR = 0;
     args.colorG = 255;
     args.colorB = 0;
     args.brightness = 100;
-    args.effect = "juggle";
+    args.effect = "solid";
     args.switches = "yes";//yes
     args.setCol = "yes";//yes
     args.setBr = "yes";//yes
@@ -24,5 +24,5 @@ function postBody(url){
         }
     });
 }
-address = "http://localhost:3000/set";
+address = "http://35.174.171.238:3000/set";
 postBody(address);
