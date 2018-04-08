@@ -21,10 +21,10 @@ const options = {
         password: {
             error: 'gotta have a password buddy'
         },
-        first: {
+        first_name: {
             error: 'do you not have a first name?'
         },
-        last: {
+        last_name: {
             error: 'what happened to your last name?'
         },
     },
@@ -60,9 +60,9 @@ export default class SignupScreen extends React.Component {
     static navigationOptions = {
         title: 'Sign up',
         headerStyle: {
-            backgroundColor: '#f4511e',
+            backgroundColor: '#ffffff',
         },
-        headerTintColor: '#fff',
+        headerTintColor: '#000',
         headerTitleStyle: {
             fontWeight: 'bold',
         },

@@ -10,12 +10,12 @@ export default class DashScreen extends React.Component {
         return (
             <Wallpaper>
             <TouchableOpacity onPress={() => {
-                AsyncStorage.getItem('username').then((username) =>{
-                    console.log(username);
-                    //query server at localhost:3000/
-
-                });
-                //this.props.navigation.navigate('Led');
+                // AsyncStorage.getItem('username').then((username) =>{
+                //     <Text style= {styles.buttonText}>Welcome,  </Text> + username
+                //     //query server at localhost:3000/
+                //
+                // });
+                this.props.navigation.navigate('Led');
             }}>
               <View style={styles.buttonContainer}>
                 <Text style= {styles.buttonText}>View your led strips </Text>

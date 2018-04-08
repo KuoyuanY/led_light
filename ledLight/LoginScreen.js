@@ -50,11 +50,11 @@ export default class LoginScreen extends React.Component {
         }
     }
     static navigationOptions = {
-        title: 'Login',
+        title: 'Log in',
         headerStyle: {
             backgroundColor: '#ffffff',
         },
-        headerTintColor: '#fff',
+        headerTintColor: '#000',
         headerTitleStyle: {
             fontWeight: 'bold',
         },
