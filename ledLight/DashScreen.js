@@ -9,18 +9,15 @@ export default class DashScreen extends React.Component {
     render(){
         return (
             <Wallpaper>
-            <TouchableOpacity onPress={() => {
-                // AsyncStorage.getItem('username').then((username) =>{
-                //     <Text style= {styles.buttonText}>Welcome,  </Text> + username
-                //     //query server at localhost:3000/
-                //
-                // });
-                this.props.navigation.navigate('Led');
-            }}>
-              <View style={styles.buttonContainer}>
-                <Text style= {styles.buttonText}>View your led strips </Text>
-              </View>
-            </TouchableOpacity>
+            // <TouchableOpacity onPress={() => {
+            //     AsyncStorage.getItem('username').then((username) =>{
+            //         <Text style= {styles.buttonText}>Welcome,  </Text> + username
+            //         //query server at localhost:3000/
+                
+            //     });
+           
+            // }}>
+            // </TouchableOpacity>
             </Wallpaper>
         );
     };
@@ -46,12 +43,12 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     marginTop: 10,
-    marginLeft: 50,
-    marginRight: 50,
+    // marginLeft: 50,
+    // marginRight: 50,
     height: 50,
     backgroundColor: "white",
     justifyContent: 'center',
-    borderRadius: 25,
+    // borderRadius: 25,
   },
   logo: {
     width: 193,

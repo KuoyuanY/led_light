@@ -11,14 +11,14 @@ export default class DashScreenM extends React.Component {
             <Wallpaper>
             <FlatList
               data={[
-                {key: 'LED Strip 1'},
+                {key: 'Main Strip'},
               ]}
               renderItem={({item}) => 
                 <TouchableOpacity onPress={() => {
                   this.props.navigation.navigate('Led');
                 }}>
                   <View style={styles.buttonContainer}>
-                    <Text style= {styles.buttonText}>Use {item.key}</Text>
+                    <Text style= {styles.buttonText}>{item.key}</Text>
                   </View>
                 </TouchableOpacity>
               }
