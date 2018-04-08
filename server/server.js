@@ -55,6 +55,7 @@ app.get('/', (req, res)=>{
     res.send("this is the api");
 });
 
+
 app.post('/signup', (req, res) => {
     const pool = new pg.Pool({
         user: credentials.dbuser,

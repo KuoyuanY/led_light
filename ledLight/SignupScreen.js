@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Alert, Button, View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
+import {AsyncStorage, Alert, Button, View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import Wallpaper from './Wallpaper';
 import DashScreen from './DashScreen';
@@ -50,6 +50,13 @@ const formStyles = {
 }
 
 export default class SignupScreen extends React.Component {
+    async saveItem(item, selectedValue) {
+        try {
+            await AsyncStorage.setItem(item, selectedValue);
+        } catch (error) {
+            console.error('AsyncStorage error: ' + error.message);
+        }
+    }h
     static navigationOptions = {
         title: 'sign up',
         headerStyle: {
@@ -84,6 +91,8 @@ export default class SignupScreen extends React.Component {
             if(response._bodyBlob.size == 4){
                 Alert.alert("username already exists");
             } else{
+
+                this.saveItem('username', args.username);
                 this.props.navigation.navigate('Dashboard');
             }
         })
