@@ -84,11 +84,10 @@ export default class LoginScreen extends React.Component {
             } else{
                 this.saveItem('username', args.username);
                 if(args.username === "Master"){
-
+                	this.props.navigation.navigate('DashboardM');
                 }else{
                     this.props.navigation.navigate('Dashboard');
                 }
-
             }
         })
         .catch((error) => {
