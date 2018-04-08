@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {AsyncStorage, Alert, Button, View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
+import {AsyncStorage, Alert, Button, View, Text, StyleSheet, TouchableOpacity, Image, FlatList } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import { ColorWheel } from 'react-native-color-wheel';
 import Wallpaper from './Wallpaper';
