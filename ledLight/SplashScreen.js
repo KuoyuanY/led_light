@@ -43,7 +43,7 @@ export default class SplashScreen extends React.Component<{}, State> {
           backgroundStyle={styles.loadingBackgroundStyle}
         >
           <View style={styles.container}>
-          <TouchableOpacity onPress={() => this.props.navigation.navigate('HomeScreen')}>
+          <TouchableOpacity onPress={() => this.props.navigation.navigate('Home')}>
             <View style={styles.buttonContainer}>
               <Text style= {styles.buttonText}>Get Started</Text>
             </View>
