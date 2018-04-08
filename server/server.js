@@ -71,7 +71,7 @@ app.post('/signup', (req, res) => {
         req.body.first,
         req.body.last
     ];
-    pool.query(query, vals, (err, res) => {
+    pool.query(query, vals, (err, response) => {
         if(err){
             console.log("error...");
             res.end('fail');
