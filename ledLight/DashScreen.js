@@ -7,8 +7,8 @@ import Wallpaper from './Wallpaper';
 
 export default class DashScreen extends React.Component {
 
-	
-  
+
+
 	constructor(props) {
     	super(props);
     	this.state = {effect: 'solid',
@@ -22,14 +22,14 @@ export default class DashScreen extends React.Component {
   	render() {
   		let convert = require('color-convert');
   		// let display = this.state.isShowingText ? this.props.text : ' ';
-  
+
 	    return (
 	      <Wallpaper>
 		      <View style={{flex: 3, marginTop:50}}>
 		        <ColorWheel
 		          initialColor="#FFFFFF"
-		          onColorChange={color => 
-					
+		          onColorChange={color =>
+
 					{if (color.h < 0) {
 						let colour = convert.hsv.rgb(360-color.h*(-1), color.s, color.v);
 						this.setState({colorR : colour[0],
@@ -40,16 +40,16 @@ export default class DashScreen extends React.Component {
 						this.setState({colorR : colour[0],
 									   colorG : colour[1],
 									   colorB : colour[2]})
-						
+
 					}}}
 		          style={{width: Dimensions.get('window').width}}
 		          thumbStyle={{ height: 30, width: 30, borderRadius: 30}} />
-		        
+
 		      </View>
-		      <View style={{flex: 2, marginTop: 40, backgroundColor: 'rgba(255,255,255,0.1)'}}> 
+		      <View style={{flex: 2, marginTop: 40, backgroundColor: 'rgba(255,255,255,0.1)'}}>
 		      		<Picker
 						selectedValue={this.state.effect}
-					 
+
 				    	onValueChange={(itemValue, itemIndex) => this.setState({effect: itemValue})}>
 
 				    	<Picker.Item label="solid" value="solid"/>
@@ -73,7 +73,7 @@ export default class DashScreen extends React.Component {
 
 						</Picker>
 			   </View>
-			   <TouchableOpacity onPress={() => 
+			   <TouchableOpacity onPress={() =>
 			   		{let args = {};
 				    args.state = "ON";
 				    this.setState({switch : "ON"});
@@ -101,7 +101,7 @@ export default class DashScreen extends React.Component {
               <Text style= {styles.buttonText}>Submit</Text>
             </View>
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => 
+          <TouchableOpacity onPress={() =>
           	{if (this.state.switch == "OFF") {
           		this.setState({switch: "ON"});
           		let args = {};
@@ -180,17 +180,17 @@ const styles = StyleSheet.create({
     fontSize: 25
   },
   buttonContainer: {
-    margin: 10,
+    marginTop: 10,
+    marginLeft: 100,
+    marginRight: 100,
     height: 50,
     backgroundColor: "white",
     justifyContent: 'center',
     borderRadius: 25,
   },
   logo: {
-    width: 193, 
+    width: 193,
     height: 110,
 
   }
 })
-
-
