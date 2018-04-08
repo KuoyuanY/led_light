@@ -9,18 +9,19 @@ export default class DashScreenM extends React.Component {
     render(){
         return (
             <Wallpaper>
-            <TouchableOpacity onPress={() => {
-                AsyncStorage.getItem('username').then((username) =>{
-                    console.log(username);
-                    //query server at localhost:3000/
-
-                });
-                //this.props.navigation.navigate('Led');
-            }}>
+            <FlatList
+              data={[
+                {key: 'LED Strip 1'},
+              ]}
+              renderItem={({item}) => <TouchableOpacity onPress={() => {
+                this.props.navigation.navigate('Led');
+              }}>
               <View style={styles.buttonContainer}>
-                <Text style= {styles.buttonText}>View your led strips </Text>
+                <Text style= {styles.buttonText}>Use {item}</Text>
               </View>
-            </TouchableOpacity>
+              </TouchableOpacity>
+              }
+            />
             </Wallpaper>
         );
     };
