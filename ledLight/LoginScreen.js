@@ -67,9 +67,12 @@ export default class LoginScreen extends React.Component {
                 args
             ),
         })
-        .then((response) => console.log(response.json()))
-        .then((responseJson) => {
-            console.log(responseJson);
+        .then((response) => {
+            if(response._bodyBlob.size == 4){
+                //show it failed
+            } else{
+                this.props.navigation.navigate('Dashboard');
+            }
         })
         .catch((error) => {
             console.error(error);
@@ -88,7 +91,7 @@ export default class LoginScreen extends React.Component {
             options={options} // pass the options via props
             /> {/* Notice the addition of the Form component */}
             <Button
-            title="Sign Up!"
+            title="Log in!"
             onPress={this.handleSubmit}
             />
             </View>

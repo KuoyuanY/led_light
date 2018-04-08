@@ -74,10 +74,10 @@ app.post('/signup', (req, res) => {
     pool.query(query, vals, (err, res) => {
         if(err){
             console.log("error...");
-            res.send(err.detail || "fail");
+            res.end('fail');
         }else{
             console.log(res);
-            res.send("success");
+            res.end('success');
         }
         pool.end();
     });
@@ -97,18 +97,18 @@ app.post('/login', (req, res) => {
         req.body.username,
         req.body.password
     ];
-    pool.query(query, vals, (err, res) => {
+    pool.query(query, vals, (err, response) => {
         if(err){
             console.log("error...");
             console.log(err);
-            res.send(err.detail || "unknown error");
+            res.end('fail');
         }else{
-            if(res.rows.length == 0){
+            if(response.rows.length == 0){
                 console.log("failed logging in");
-                res.send("fail");
+                res.end('fail');
             }else{
                 console.log("successfully logged in");
-                res.send("success");
+                res.end('success');
             }
         }
         pool.end();
@@ -122,7 +122,7 @@ app.post('/set', (req, res) => {
     client.publish(topic, message, (err) => {//send command to arduino
         if(err){
             console.log(`client disconnecting`);
-            res.send("an error has occurred");
+            res.end('disconnected');
         } else{
             console.log("successfully connected");
             if(req.body.switches === "yes"){//turn led on/off
