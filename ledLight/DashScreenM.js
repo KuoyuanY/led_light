@@ -13,13 +13,14 @@ export default class DashScreenM extends React.Component {
               data={[
                 {key: 'LED Strip 1'},
               ]}
-              renderItem={({item}) => <TouchableOpacity onPress={() => {
-                this.props.navigation.navigate('Led');
-              }}>
-              <View style={styles.buttonContainer}>
-                <Text style= {styles.buttonText}>Use {item}</Text>
-              </View>
-              </TouchableOpacity>
+              renderItem={({item}) => 
+                <TouchableOpacity onPress={() => {
+                  this.props.navigation.navigate('Led');
+                }}>
+                  <View style={styles.buttonContainer}>
+                    <Text style= {styles.buttonText}>Use {item.key}</Text>
+                  </View>
+                </TouchableOpacity>
               }
             />
             </Wallpaper>
