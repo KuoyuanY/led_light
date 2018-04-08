@@ -5,6 +5,7 @@ import Wallpaper from './Wallpaper';
 import DashScreen from './DashScreen';
 import t from 'tcomb-form-native';
 
+const ip = '10.104.169.224';
 const Form = t.form.Form;
 const User = t.struct({
     username: t.String,
@@ -77,7 +78,8 @@ export default class SignupScreen extends React.Component {
         args.password = value.password;
         args.first = value.first;
         args.last = value.last;
-        fetch('http://localhost:3000/signup', {
+        //fetch('http://localhost:3000/signup', {
+        fetch('http://' + ip + ':3000/login', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',

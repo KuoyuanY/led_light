@@ -5,6 +5,7 @@ import Wallpaper from './Wallpaper';
 import DashScreen from './DashScreen';
 import t from 'tcomb-form-native';
 
+const ip = '10.104.169.224';
 const Form = t.form.Form;
 const User = t.struct({
     username: t.String,
@@ -67,7 +68,8 @@ export default class LoginScreen extends React.Component {
         let args = {};
         args.username = value.username;
         args.password = value.password;
-        fetch('http://localhost:3000/login', {
+        // fetch('http://localhost:3000/login', {
+        fetch('http://' + ip + ':3000/login', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
@@ -114,42 +116,6 @@ export default class LoginScreen extends React.Component {
             </Wallpaper>
         );
     }
-    /*
-    <TouchableOpacity onPress={() => {
-    let args = {};
-    args.state = "ON";
-    args.colorR = colour[0];
-    args.colorG = colour[1];
-    args.colorB = colour[2];
-    args.brightness = 50;
-    args.effect = "solid";
-    args.switches = "yes";
-    args.setCol = "yes";
-    args.setBr = "yes";
-    fetch('http://localhost:3000/set', {
-    method: 'POST',
-    headers: {
-    Accept: 'application/json',
-    'Content-Type': 'application/json',
-},
-body: JSON.stringify(
-args
-),
-})
-.then((response) => response.json())
-.then((responseData) => {
-console.warn(responseData);
-return responseData;
-})
-.catch(error => console.warn(error));
-this.props.navigation.navigate('Dashboard')
-}}>
-<View style={styles.buttonContainer}>
-<Text style= {styles.buttonText}>Log In</Text>
-</View>
-</TouchableOpacity>
-*/
-
 }
 const styles = StyleSheet.create({
     container: {
