@@ -65,6 +65,8 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     margin: 10,
+    marginLeft: 100,
+    marginRight: 100,
     marginTop :10,
     height: 50,
     backgroundColor: "white",
