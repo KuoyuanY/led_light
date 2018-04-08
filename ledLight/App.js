@@ -5,6 +5,7 @@ import DashScreen from './DashScreen';
 import LoginScreen from './LoginScreen';
 import SignupScreen from './SignupScreen';
 import HomeScreen from './HomeScreen';
+import SplashScreen from './SplashScreen';
 import LedScreen from './LedScreen';
 
 const RootStack = StackNavigator(
@@ -24,9 +25,12 @@ const RootStack = StackNavigator(
     Signup: {
       screen: SignupScreen,
     },
+    Splash: {
+      screen: SplashScreen,
+    },
   },
   {
-    initialRouteName: 'Home',
+    initialRouteName: 'Splash',
   }
 );
 

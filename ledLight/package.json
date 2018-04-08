@@ -25,6 +25,7 @@
     "react-native": "0.54.0",
     "react-native-color-picker": "^0.4.0",
     "react-native-color-wheel": "^0.1.5",
+    "react-native-mask-loader": "^0.0.3",
     "react-navigation": "^1.5.11",
     "tcomb-form-native": "^0.6.11"
   }
