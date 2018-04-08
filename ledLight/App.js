@@ -28,6 +28,9 @@ const RootStack = StackNavigator(
     Splash: {
       screen: SplashScreen,
     },
+    DashboardM {
+      screen: DashboardScreenM,
+    }
   },
   {
     initialRouteName: 'Splash',
