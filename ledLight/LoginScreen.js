@@ -14,10 +14,10 @@ const User = t.struct({
 const options = {
     fields: {
         username: {
-            error: 'were you trying to log in without a username? lol'
+            error: 'wrong username'
         },
         password: {
-            error: '-_-'
+            error: 'wrong password'
         },
     },
     stylesheet: formStyles,
@@ -54,6 +54,9 @@ export default class LoginScreen extends React.Component {
     };
     handleSubmit = () => {
         const value = this._form.getValue(); // use that ref to get the form value
+        if(!value){
+            return;
+        }
         let args = {};
         args.username = value.username;
         args.password = value.password;
@@ -70,6 +73,7 @@ export default class LoginScreen extends React.Component {
         .then((response) => {
             if(response._bodyBlob.size == 4){
                 //show it failed
+                return;
             } else{
                 this.props.navigation.navigate('Dashboard');
             }
