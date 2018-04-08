@@ -8,7 +8,7 @@ import {StyleSheet, Image, View, ImageBackground} from 'react-native';
 export default class Wallpaper extends Component {
   render() {
   	let pic = {
-      uri: 'http://bennettfeely.com/gradients/img/gradient_24.png'
+      uri: 'https://i.imgur.com/l3iPXcB.png'
     };
     return (
     	<View style= {{flex:1}}>

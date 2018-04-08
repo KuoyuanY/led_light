@@ -5,6 +5,9 @@ const credentials = require('./credentials');
 const bodyParser = require('body-parser');
 const mqtt = require('mqtt');
 const topic = "bruh/porch/set";
+const pg = require('pg');
+const format = require('pg-format');
+const connectionString = process.env.DATABASE_URL || 'postgres://localhost:5432/led';
 
 var options = {
     keepalive: 60,
@@ -52,6 +55,66 @@ app.get('/', (req, res)=>{
     res.send("this is the api");
 });
 
+app.post('/signup', (req, res) => {
+    const pool = new pg.Pool({
+        user: credentials.dbuser,
+        host: '127.0.0.1',
+        database: credentials.db,
+        password: credentials.dbpass,
+        port: '5432'
+    });
+
+    const query = `insert into users values($1, $2, $3, $4)`;
+    const vals = [
+        req.body.username,
+        req.body.password,
+        req.body.first,
+        req.body.last
+    ];
+    pool.query(query, vals, (err, response) => {
+        if(err){
+            console.log("error...");
+            res.end('fail');
+        }else{
+            console.log(res);
+            res.end('success');
+        }
+        pool.end();
+    });
+});
+
+app.post('/login', (req, res) => {
+    const pool = new pg.Pool({
+        user: credentials.dbuser,
+        host: '127.0.0.1',
+        database: credentials.db,
+        password: credentials.dbpass,
+        port: '5432'
+    });
+
+    const query = `select * from users where username = $1 and password = $2`;
+    const vals = [
+        req.body.username,
+        req.body.password
+    ];
+    pool.query(query, vals, (err, response) => {
+        if(err){
+            console.log("error...");
+            console.log(err);
+            res.end('fail');
+        }else{
+            if(response.rows.length == 0){
+                console.log("failed logging in");
+                res.end('fail');
+            }else{
+                console.log("successfully logged in");
+                res.end('success');
+            }
+        }
+        pool.end();
+    });
+});
+
 app.post('/set', (req, res) => {
     console.log(req.body);
     var message = `{"state":"${req.body.state}","color":{"r":${req.body.colorR},"g":${req.body.colorG},"b":${req.body.colorB}},"brightness":${req.body.brightness},"effect":"${req.body.effect}"}`;
@@ -59,7 +122,7 @@ app.post('/set', (req, res) => {
     client.publish(topic, message, (err) => {//send command to arduino
         if(err){
             console.log(`client disconnecting`);
-            res.send("an error has occurred");
+            res.end('disconnected');
         } else{
             console.log("successfully connected");
             if(req.body.switches === "yes"){//turn led on/off

@@ -5,6 +5,7 @@ import Wallpaper from './Wallpaper';
 import LoginScreen from './LoginScreen';
 import SignupScreen from './SignupScreen';
 
+
 export default class HomeScreen extends React.Component {
 
   // _onPressButton() {
@@ -16,10 +17,10 @@ export default class HomeScreen extends React.Component {
       <Wallpaper>
         <View style={styles.container}>
           <View style={{alignItems: 'center'}}>
-            <Image source = {{uri: "https://assets.corusent.com/wp-content/uploads/2018/01/logo_tv_disney_en_jan2018-500x250.png"}} style={styles.logo}/>
+            <Image source = {{uri: "https://i.imgur.com/YRcuhsH.png"}} style={styles.logo}/>
           </View>
           <View>
-            <Text style={styles.title}>"LED Lights"</Text>
+            <Text style={styles.title}>Lumify</Text>
           </View>
 
           <TouchableOpacity onPress={() => this.props.navigation.navigate('Login')}>
@@ -27,12 +28,13 @@ export default class HomeScreen extends React.Component {
               <Text style= {styles.buttonText}>Login</Text>
             </View>
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => this.props.navigation.navigate('Dashboard')}>
+          <TouchableOpacity onPress={() => this.props.navigation.navigate('Signup')}>
             <View style={styles.buttonContainer}>
               <Text style= {styles.buttonText}>Sign Up</Text>
             </View>
           </TouchableOpacity>
         </View>
+        <View style = {{marginBottom : 50}}> </View>
       </Wallpaper>
     );
   }
@@ -46,9 +48,14 @@ const styles = StyleSheet.create({
   },
   title: {
     margin: 10,
+    marginTop : 30,
+    marginBottom : 30,
     textAlign: 'center',
     justifyContent: 'center',
-    fontSize: 30
+    fontSize: 30,
+    fontFamily: 'Optima-ExtraBlack',
+    letterSpacing : 4,
+    color : 'white'
   },
   buttonText: {
     margin: 10,
@@ -58,15 +65,15 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     margin: 10,
+    marginTop :10,
     height: 50,
     backgroundColor: "white",
     justifyContent: 'center',
     borderRadius: 25,
   },
   logo: {
-    width: 193, 
-    height: 110,
+    width: 330,
+    height: 370,
 
   }
 })
-

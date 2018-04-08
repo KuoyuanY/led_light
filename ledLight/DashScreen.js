@@ -1,102 +1,61 @@
 import React, {Component} from 'react';
-import { Button, View, Text, Dimensions, StyleSheet } from 'react-native';
+import {AsyncStorage, Alert, Button, View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import { ColorWheel } from 'react-native-color-wheel';
 import Wallpaper from './Wallpaper';
 
 
 export default class DashScreen extends React.Component {
+    render(){
+        return (
+            <Wallpaper>
+            <TouchableOpacity onPress={() => {
+                AsyncStorage.getItem('username').then((username) =>{
+                    console.log(username);
+                    //query server at localhost:3000/
 
-	
-  
-	constructor(props) {
-    	super(props);
-    	this.state = {text: ''};
+                });
+                //this.props.navigation.navigate('Led');
+            }}>
+              <View style={styles.buttonContainer}>
+                <Text style= {styles.buttonText}>View your led strips </Text>
+              </View>
+            </TouchableOpacity>
+            </Wallpaper>
+        );
+    };
 
-  	}
-
-  	render() {
-  		let convert = require('color-convert');
-  		let display = this.state.isShowingText ? this.props.text : ' ';
-  
-	    return (
-	      <Wallpaper>
-		      <View style={{flex: 1}}>
-		      <Text>{display}</Text>
-		        <ColorWheel
-		          initialColor="#000000"
-		          onColorChange={color => 
-					
-					{if (color.h < 0) {
-						let colour = convert.hsv.rgb(360-color.h*(-1), color.s, color.v);
-						let args = {};
-					    args.state = "ON";
-					    args.colorR = colour[0];
-					    args.colorG = colour[1];
-					    args.colorB = colour[2];
-					    args.brightness = 50;
-					    args.effect = "solid";
-					    args.switches = "yes";
-					    args.setCol = "yes";
-					    args.setBr = "yes";
-
-						fetch('http://localhost:3000/set', {
-						  method: 'POST',
-						  headers: {
-						    Accept: 'application/json',
-						    'Content-Type': 'application/json',
-						  },
-						  body: JSON.stringify(
-						    args
-						  ),
-						});
-					} else {
-						let colour = convert.hsv.rgb(color.h, color.s, color.v);
-						let args = {};
-					    args.state = "ON";
-					    args.colorR = colour[0];
-					    args.colorG = colour[1];
-					    args.colorB = colour[2];
-					    args.brightness = 50;
-					    args.effect = "solid";
-					    args.switches = "yes";
-					    args.setCol = "yes";
-					    args.setBr = "yes";
-
-						fetch('http://localhost:3000/set', {
-						  method: 'POST',
-						  headers: {
-						    Accept: 'application/json',
-						    'Content-Type': 'application/json',
-						  },
-						  body: JSON.stringify(
-						    args
-						  ),
-						});
-					}}}
-		          style={{width: Dimensions.get('window').width}}
-		          thumbStyle={{ height: 30, width: 30, borderRadius: 30}} />
-		      </View>
-	      </Wallpaper>
-	    );
-  }
 }
 
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+  },
+  title: {
+    margin: 10,
+    textAlign: 'center',
+    justifyContent: 'center',
+    fontSize: 30
+  },
+  buttonText: {
+    margin: 10,
+    textAlign: 'center',
+    justifyContent: 'center',
+    fontSize: 25
+  },
+  buttonContainer: {
+    marginTop: 10,
+    marginLeft: 50,
+    marginRight: 50,
+    height: 50,
+    backgroundColor: "white",
+    justifyContent: 'center',
+    borderRadius: 25,
+  },
+  logo: {
+    width: 193,
+    height: 110,
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  }
+})
