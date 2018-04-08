@@ -48,12 +48,12 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     marginTop: 10,
-    marginLeft: 50,
-    marginRight: 50,
+    // marginLeft: 50,
+    // marginRight: 50,
     height: 50,
     backgroundColor: "white",
     justifyContent: 'center',
-    borderRadius: 25,
+    // borderRadius: 25,
   },
   logo: {
     width: 193,
