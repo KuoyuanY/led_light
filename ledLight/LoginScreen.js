@@ -14,10 +14,10 @@ const User = t.struct({
 const options = {
     fields: {
         username: {
-            error: 'wrong username'
+            error: 'Enter username'
         },
         password: {
-            error: 'wrong password'
+            error: 'Enter password'
         },
     },
     stylesheet: formStyles,
@@ -43,9 +43,9 @@ const formStyles = {
 
 export default class LoginScreen extends React.Component {
     static navigationOptions = {
-        title: 'Login',
+       
         headerStyle: {
-            backgroundColor: '#f4511e',
+            backgroundColor: '#ffffff',
         },
         headerTintColor: '#fff',
         headerTitleStyle: {
@@ -73,7 +73,7 @@ export default class LoginScreen extends React.Component {
         .then((response) => {
             if(response._bodyBlob.size == 4){
                 //show it failed
-                return;
+                Alert.alert('Wrong username or password');
             } else{
                 this.props.navigation.navigate('Dashboard');
             }
@@ -93,7 +93,7 @@ export default class LoginScreen extends React.Component {
             ref={c => this._form = c}
             type={User}
             options={options} // pass the options via props
-            /> {/* Notice the addition of the Form component */}
+            /> 
             <Button
             title="Log in!"
             onPress={this.handleSubmit}
