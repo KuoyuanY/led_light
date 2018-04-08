@@ -5,6 +5,7 @@ import DashScreen from './DashScreen';
 import LoginScreen from './LoginScreen';
 import SignupScreen from './SignupScreen';
 import HomeScreen from './HomeScreen';
+import SplashScreen from './SplashScreen';
 // export default class App extends React.Component {
 //   render() {
 //     return (
@@ -18,7 +19,7 @@ import HomeScreen from './HomeScreen';
 //         <View style={{width: 50, height: 50, backgroundColor: 'purple'}} />
 //         <View style={{width: 50, height: 50, backgroundColor: 'orange'}} />
 //       </View>
-      
+
 //     );
 //   }
 // }
@@ -37,9 +38,12 @@ const RootStack = StackNavigator(
     Signup: {
       screen: SignupScreen,
     },
+    Splash: {
+      screen: SplashScreen,
+    },
   },
   {
-    initialRouteName: 'Home',
+    initialRouteName: 'Splash',
   }
 );
 
@@ -59,5 +63,3 @@ export default class App extends React.Component {
 //     justifyContent: 'center',
 //   },
 // });
-
-
