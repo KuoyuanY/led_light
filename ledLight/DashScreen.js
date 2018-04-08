@@ -1,23 +1,37 @@
 import React, {Component} from 'react';
-import {AsyncStorage, Alert, Button, View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
+import {AsyncStorage, Alert, Button, View, Text, StyleSheet, TouchableOpacity, Image, FlatList } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import { ColorWheel } from 'react-native-color-wheel';
 import Wallpaper from './Wallpaper';
 
 
 export default class DashScreen extends React.Component {
+    static navigationOptions = {
+        title: 'LED Strips',
+        headerStyle: {
+            backgroundColor: '#ffffff',
+        },
+        headerTintColor: '#000',
+        headerTitleStyle: {
+            fontWeight: 'bold',
+        },
+    };
     render(){
         return (
             <Wallpaper>
-            // <TouchableOpacity onPress={() => {
-            //     AsyncStorage.getItem('username').then((username) =>{
-            //         <Text style= {styles.buttonText}>Welcome,  </Text> + username
-            //         //query server at localhost:3000/
-                
-            //     });
-           
-            // }}>
-            // </TouchableOpacity>
+            <FlatList
+              data={[
+              ]}
+              renderItem={({item}) =>
+                <TouchableOpacity onPress={() => {
+                  this.props.navigation.navigate('Led');
+                }}>
+                  <View style={styles.buttonContainer}>
+                    <Text style= {styles.buttonText}>{item.key}</Text>
+                  </View>
+                </TouchableOpacity>
+              }
+            />
             </Wallpaper>
         );
     };

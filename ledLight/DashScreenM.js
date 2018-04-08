@@ -6,6 +6,16 @@ import Wallpaper from './Wallpaper';
 
 
 export default class DashScreenM extends React.Component {
+    static navigationOptions = {
+        title: 'LED Strips',
+        headerStyle: {
+            backgroundColor: '#ffffff',
+        },
+        headerTintColor: '#000',
+        headerTitleStyle: {
+            fontWeight: 'bold',
+        },
+    };
     render(){
         return (
             <Wallpaper>
@@ -13,7 +23,7 @@ export default class DashScreenM extends React.Component {
               data={[
                 {key: 'Main Strip'},
               ]}
-              renderItem={({item}) => 
+              renderItem={({item}) =>
                 <TouchableOpacity onPress={() => {
                   this.props.navigation.navigate('Led');
                 }}>
