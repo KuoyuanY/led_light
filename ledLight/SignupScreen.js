@@ -79,7 +79,7 @@ export default class SignupScreen extends React.Component {
         args.first = value.first;
         args.last = value.last;
         //fetch('http://localhost:3000/signup', {
-        fetch('http://' + ip + ':3000/login', {
+        fetch('http://' + ip + ':3000/signup', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',

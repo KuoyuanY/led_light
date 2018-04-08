@@ -4,7 +4,7 @@ import { StackNavigator } from 'react-navigation';
 import { ColorWheel } from 'react-native-color-wheel';
 import Wallpaper from './Wallpaper';
 
-
+const ip = '10.104.169.224';
 export default class LedScreen extends React.Component {
 
 
@@ -70,6 +70,7 @@ export default class LedScreen extends React.Component {
 						<Picker.Item label="twinkle" value="twinkle"/>
 						<Picker.Item label="noise" value="noise"/>
 						<Picker.Item label="ripple" value="ripple"/>
+                        <Picker.Item label="morning" value="morning"/>
 
 						</Picker>
 			   </View>
@@ -86,7 +87,8 @@ export default class LedScreen extends React.Component {
 				    args.setCol = "yes";
 				    args.setBr = "yes";
 
-					fetch('http://localhost:3000/set', {
+					//fetch('http://localhost:3000/set', {
+                    fetch('http://' + ip + ':3000/set', {
 					  method: 'POST',
 					  headers: {
 					    Accept: 'application/json',
@@ -115,7 +117,8 @@ export default class LedScreen extends React.Component {
 				    args.setCol = "yes";
 				    args.setBr = "yes";
 
-					fetch('http://localhost:3000/set', {
+					//fetch('http://localhost:3000/set', {
+                    fetch('http://' + ip + ':3000/set', {
 					  method: 'POST',
 					  headers: {
 					    Accept: 'application/json',
@@ -138,7 +141,8 @@ export default class LedScreen extends React.Component {
 				    args.setCol = "yes";
 				    args.setBr = "yes";
 
-					fetch('http://localhost:3000/set', {
+					//fetch('http://localhost:3000/set', {
+                    fetch('http://' + ip + ':3000/set', {
 					  method: 'POST',
 					  headers: {
 					    Accept: 'application/json',
