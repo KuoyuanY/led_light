@@ -50,7 +50,7 @@ export default class LoginScreen extends React.Component {
         }
     }
     static navigationOptions = {
-
+        title: 'Login',
         headerStyle: {
             backgroundColor: '#ffffff',
         },
@@ -83,7 +83,12 @@ export default class LoginScreen extends React.Component {
                 Alert.alert('Wrong username or password');
             } else{
                 this.saveItem('username', args.username);
-                this.props.navigation.navigate('Dashboard');
+                if(args.username === "Master"){
+
+                }else{
+                    this.props.navigation.navigate('Dashboard');
+                }
+
             }
         })
         .catch((error) => {

@@ -58,7 +58,7 @@ export default class SignupScreen extends React.Component {
         }
     }
     static navigationOptions = {
-        title: 'sign up',
+        title: 'Sign up',
         headerStyle: {
             backgroundColor: '#f4511e',
         },
