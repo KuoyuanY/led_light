@@ -56,7 +56,7 @@ export default class SignupScreen extends React.Component {
         } catch (error) {
             console.error('AsyncStorage error: ' + error.message);
         }
-    }h
+    }
     static navigationOptions = {
         title: 'sign up',
         headerStyle: {

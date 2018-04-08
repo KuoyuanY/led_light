@@ -9,5 +9,7 @@ create table users(
 );
 create table light(
     ledid serial not null,
-    username varchar(25) references users
+    username varchar(25) references users,
+    mqttUsername varchar(25),
+    mqttPassword varchar(25)
 );
