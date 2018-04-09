@@ -33,7 +33,7 @@ export default class DashScreenM extends React.Component {
                 this.userLogout();
                 this.props.navigation.navigate('Home');
             }}
-            title="Learn More"
+            title="Log off"
             color="#841584"
             accessibilityLabel="Learn more about this purple button"
             />

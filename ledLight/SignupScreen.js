@@ -5,7 +5,7 @@ import Wallpaper from './Wallpaper';
 import DashScreen from './DashScreen';
 import t from 'tcomb-form-native';
 
-const ip = '10.104.169.224';
+const ip = '10.30.14.184';
 const Form = t.form.Form;
 const User = t.struct({
     username: t.String,

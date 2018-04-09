@@ -6,6 +6,14 @@ import Wallpaper from './Wallpaper';
 
 
 export default class DashScreen extends React.Component {
+    async userLogout() {
+        try {
+            await AsyncStorage.removeItem('username');
+            Alert.alert('Logout Success!');
+        } catch (error) {
+            console.log('AsyncStorage error: ' + error.message);
+        }
+    }
     static navigationOptions = {
         title: 'LED Strips',
         headerStyle: {
@@ -19,6 +27,15 @@ export default class DashScreen extends React.Component {
     render(){
         return (
             <Wallpaper>
+            <Button
+            onPress={() =>{
+                this.userLogout();
+                this.props.navigation.navigate('Home');
+            }}
+            title="Log off"
+            color="#841584"
+            accessibilityLabel="Learn more about this purple button"
+            />
             <FlatList
               data={[
               ]}

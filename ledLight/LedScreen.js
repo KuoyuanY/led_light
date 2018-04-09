@@ -4,7 +4,7 @@ import { StackNavigator } from 'react-navigation';
 import { ColorWheel } from 'react-native-color-wheel';
 import Wallpaper from './Wallpaper';
 
-const ip = '10.104.169.224';
+const ip = '10.30.14.184';
 export default class LedScreen extends React.Component {
 
 
@@ -81,7 +81,7 @@ export default class LedScreen extends React.Component {
 				    args.colorR = this.state.colorR;
 				    args.colorG = this.state.colorG;
 				    args.colorB = this.state.colorB;
-				    args.brightness = 50;
+				    args.brightness = 80;
 				    args.effect = this.state.effect;
 				    args.switches = "yes";
 				    args.setCol = "yes";
@@ -111,7 +111,7 @@ export default class LedScreen extends React.Component {
 				    args.colorR = this.state.colorR;
 				    args.colorG = this.state.colorG;
 				    args.colorB = this.state.colorB;
-				    args.brightness = 50;
+				    args.brightness = 80;
 				    args.effect = this.state.effect;
 				    args.switches = "yes";
 				    args.setCol = "yes";
@@ -135,7 +135,7 @@ export default class LedScreen extends React.Component {
 				    args.colorR = this.state.colorR;
 				    args.colorG = this.state.colorG;
 				    args.colorB = this.state.colorB;
-				    args.brightness = 50;
+				    args.brightness = 80;
 				    args.effect = this.state.effect;
 				    args.switches = "yes";
 				    args.setCol = "yes";
