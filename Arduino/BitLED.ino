@@ -15,11 +15,11 @@
 
 
 /************ WIFI and MQTT Information (CHANGE THESE FOR YOUR SETUP) ******************/
-const char* ssid = "NRiP"; //type your WIFI information inside the quotes
-const char* password = "b9awm1imyg36n";
+const char* ssid = ""; //type your WIFI information inside the quotes
+const char* password = "";
 const char* mqtt_server = "m14.cloudmqtt.com";
-const char* mqtt_username = "fhhpmiuy";
-const char* mqtt_password = "GoKlKsCNQY-Z";
+const char* mqtt_username = "";
+const char* mqtt_password = "";
 const int mqtt_port = 16370;
 
 
@@ -216,7 +216,7 @@ void setup_wifi() {
   Serial.println();
   Serial.print("Connecting to ");
   Serial.println(ssid);
-  
+
   WiFi.mode(WIFI_STA);
   WiFi.begin(ssid, password);
 
@@ -365,14 +365,14 @@ bool processJson(char* message) {
       green = root["color"]["g"];
       blue = root["color"]["b"];
     }
-    
+
     if (root.containsKey("color_temp")) {
       //temp comes in as mireds, need to convert to kelvin then to RGB
       int color_temp = root["color_temp"];
       unsigned int kelvin  = 1000000 / color_temp;
-      
+
       temp2rgb(kelvin);
-      
+
     }
 
     if (root.containsKey("brightness")) {
@@ -1041,8 +1041,8 @@ void showleds() {
 }
 void temp2rgb(unsigned int kelvin) {
     int tmp_internal = kelvin / 100.0;
-    
-    // red 
+
+    // red
     if (tmp_internal <= 66) {
         red = 255;
     } else {
@@ -1055,7 +1055,7 @@ void temp2rgb(unsigned int kelvin) {
             red = tmp_red;
         }
     }
-    
+
     // green
     if (tmp_internal <=66){
         float tmp_green = 99.4708025861 * log(tmp_internal) - 161.1195681661;
@@ -1076,7 +1076,7 @@ void temp2rgb(unsigned int kelvin) {
             green = tmp_green;
         }
     }
-    
+
     // blue
     if (tmp_internal >=66) {
         blue = 255;
@@ -1093,4 +1093,3 @@ void temp2rgb(unsigned int kelvin) {
         }
     }
 }
-

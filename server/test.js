@@ -24,5 +24,5 @@ function postBody(url){
         }
     });
 }
-address = "http://35.174.171.238:3000/set";
+address = "";
 postBody(address);
