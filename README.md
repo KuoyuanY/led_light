@@ -2,8 +2,18 @@
 mobile app that controls led lights for users: set color, pattern, etc
 
 ## Demo
-Here is a demonstration of the app. I don't have the led strips with me, so can't show the actual magic happening, but here is a video of using the app.
-![demo](demo/demo.mp4)
+There is a demo of the app in the demo directory. I don't have the led strips with me, so can't show the actual magic happening, but here are the functionalities.
+![splash](demo/splash.png)
+This is the splash screen of the app with animation similar to twitter's.
+![home](demo/home.png)
+This is the home page
+![login](demo/login.png)
+This is the login page
+![app](demo/app.png)
+This is how you control your led strip.
+##### power button turns the led light on/off.
+##### the color wheel changes the color of led strip.
+##### there is a list of options for the patterns of led strip: solid, police, fire, etc
 
 ## getting started
 
